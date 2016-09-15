@@ -4,7 +4,7 @@ function get_hot_questions(quantity) {
     });
 }
 
-function get_request(url, responsetype, encoding) {
+function get_request(url, responsetype) {
     return new Promise(function(resolve, reject) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.addEventListener("error", reject);
@@ -12,7 +12,6 @@ function get_request(url, responsetype, encoding) {
         xmlhttp.addEventListener("load", resolve);
         xmlhttp.open(url, "GET");
         xmlhttp.responseType = responsetype;
-        xmlhttpsetRequestHeaders("accept-encoding", encoding);
         xmlhttp.send();
     });
 }
