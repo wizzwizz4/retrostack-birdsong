@@ -30,7 +30,7 @@ function get_twitter_timeline_fragments(userid, count, maxid, fragments) {
     ).then(function(response) {
         qobj = JSON.parse(response.responseText);
         fragments.concat(qobj);
-        if (qobj.length > count) {
+        if (qobj.length >= count) {
             return fragments;
         } else {
             return get_twitter_timeline_fragments(userid, count - qobj.length, qobj[qobj.length - 1].id_str, fragments);
