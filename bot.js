@@ -43,7 +43,9 @@ function get_request(url, responsetype) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.addEventListener("error", reject);
         xmlhttp.addEventListener("abort", reject);
-        xmlhttp.addEventListener("load", resolve);
+        xmlhttp.addEventListener("load", function(e) {
+            resolve(xmlhttp);
+        });
         xmlhttp.open("GET", url);
         if (responsetype !== undefined) {
             xmlhttp.responseType = responsetype;
