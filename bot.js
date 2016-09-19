@@ -19,6 +19,12 @@ function get_hot_questions(pagesize, page) {
 }
 get_hot_questions.backoff = false;
 
+function get_twitter_posted_urls(userid, count) {
+    return Promise.resolve(get_twitter_timeline_fragments(userid, count)).then(function(fragments) {
+        
+    });
+}
+
 function get_twitter_timeline_fragments(userid, count, maxid, fragments) {
     if (fragments === undefined) {
         fragments = [];
