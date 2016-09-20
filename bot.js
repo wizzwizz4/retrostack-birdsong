@@ -39,7 +39,7 @@ function get_twitter_timeline_fragments(userid, count, maxid, fragments) {
         if (qobj.length >= count) {
             return fragments;
         } else {
-            return get_twitter_timeline_fragments(userid, count - qobj.length, qobj[qobj.length - 1].id_str, fragments);
+            return get_twitter_timeline_fragments(userid, count - qobj.length + 1, qobj[qobj.length - 1].id_str, fragments);
         }
     });
 }
